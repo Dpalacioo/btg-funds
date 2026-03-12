@@ -9,6 +9,11 @@ import { provideHttpClient } from '@angular/common/http';
 import { FundsModule } from './features/funds/funds.module';
 import { SharedModule } from './shared/shared.module';
 import { TransactionsModule } from './features/transactions/transactions.module';
+import { LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localeEsCo from '@angular/common/locales/es-CO';
+
+registerLocaleData(localeEsCo);
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,7 +24,7 @@ import { TransactionsModule } from './features/transactions/transactions.module'
     SharedModule,
     TransactionsModule,
   ],
-  providers: [provideHttpClient()],
+  providers: [provideHttpClient(), { provide: LOCALE_ID, useValue: 'es-CO' }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

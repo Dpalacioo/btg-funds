@@ -1,21 +1,35 @@
-<div class="bg-white shadow-md rounded-lg p-6 border">
-  <h2 class="text-xl font-semibold mb-2">
+<div
+  class="grid grid-cols-12 mb-1 items-center gap-4 bg-white px-6 py-2 rounded-lg border hover:border-gray-300 hover:bg-gray-50 hover:shadow-md hover:-translate-x-[2px] transition-all duration-300 ease-in-out"
+>
+  <div class="col-span-5 font-semibold text-gray-900">
     {{ fund.name }}
-  </h2>
+  </div>
 
-  <p class="text-gray-600 mb-2">Categoría: {{ fund.category }}</p>
+  <div class="col-span-2">
+    <span
+      class="text-xs font-semibold px-2 py-1 rounded-full"
+      [ngClass]="{
+        'bg-blue-100 text-blue-700': fund.category === 'FPV',
+        'bg-green-100 text-green-700': fund.category === 'FIC',
+      }"
+    >
+      {{ fund.category }}
+    </span>
+  </div>
 
-  <p class="text-gray-800 font-medium mb-4">
-    Monto mínimo: {{ fund.minAmount | currency: "COP" }}
-  </p>
+  <div class="col-span-3 text-gray-900 font-semibold">
+    {{ fund.minAmount | currency: "COP" : "symbol" : "1.0-0" }}
+  </div>
 
-  <button
-    (click)="openConfirmModal()"
-    [disabled]="loading"
-    class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
-  >
-    {{ loading ? "Procesando..." : "Suscribirse" }}
-  </button>
+  <div class="col-span-2 text-right">
+    <button
+      (click)="openConfirmModal()"
+      [disabled]="loading"
+      class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition disabled:opacity-50"
+    >
+      {{ loading ? "Procesando..." : "Suscribirse" }}
+    </button>
+  </div>
 </div>
 
 <app-confirm-modal

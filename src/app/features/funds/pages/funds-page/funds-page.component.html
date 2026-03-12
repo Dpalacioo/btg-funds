@@ -1,7 +1,16 @@
-<div class="p-10">
-  <h1 class="text-3xl font-bold mb-6">Fondos disponibles</h1>
+<div class="max-w-6xl mx-auto px-6 py-10">
+  <h1 class="text-3xl font-semibold text-gray-900 mb-8">Fondos disponibles</h1>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  <div
+    class="grid grid-cols-12 gap-4 px-6 py-3 text-xs font-semibold uppercase tracking-wide text-gray-500 border-b border-gray-200"
+  >
+    <div class="col-span-5">Nombre</div>
+    <div class="col-span-2">Categoría</div>
+    <div class="col-span-3">Monto mínimo</div>
+    <div class="col-span-2 text-right">Acción</div>
+  </div>
+
+  <div class="mt-2 rounded-lg divide-y">
     <app-fund-card *ngFor="let fund of funds" [fund]="fund"> </app-fund-card>
   </div>
 </div>
