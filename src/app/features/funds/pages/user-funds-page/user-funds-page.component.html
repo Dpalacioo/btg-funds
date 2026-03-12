@@ -1,30 +1,40 @@
 <div class="p-10">
   <h1 class="text-3xl font-bold mb-6">Mis Fondos</h1>
 
-  <div
-    *ngFor="let fund of userFunds$ | async"
-    class="bg-white shadow rounded p-6 mb-4 flex justify-between items-center"
-  >
-    <div>
-      <h2 class="font-semibold text-lg">
-        {{ fund.name }}
-      </h2>
+  <ng-container *ngIf="userFunds$ | async as funds">
+    <div *ngIf="funds.length > 0; else emptyFunds">
+      <div
+        *ngFor="let fund of funds"
+        class="bg-white shadow rounded p-6 mb-4 flex justify-between items-center"
+      >
+        <div>
+          <h2 class="font-semibold text-lg">
+            {{ fund.name }}
+          </h2>
 
-      <p class="text-gray-500">Categoría: {{ fund.category }}</p>
+          <p class="text-gray-500">Categoría: {{ fund.category }}</p>
 
-      <p class="text-gray-700">
-        Monto invertido:
-        {{ fund.minAmount | currency: "COP" }}
-      </p>
+          <p class="text-gray-700">
+            Monto invertido:
+            {{ fund.minAmount | currency: "COP" : "symbol" : "1.0-0" }}
+          </p>
+        </div>
+
+        <button
+          (click)="openCancelModal(fund)"
+          class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
+        >
+          Cancelar
+        </button>
+      </div>
     </div>
+  </ng-container>
 
-    <button
-      (click)="openCancelModal(fund)"
-      class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
-    >
-      Cancelar
-    </button>
-  </div>
+  <ng-template #emptyFunds>
+    <div class="text-center py-10 text-gray-500">
+      Aún no estás suscrito a ningún fondo.
+    </div>
+  </ng-template>
 </div>
 
 <app-confirm-modal

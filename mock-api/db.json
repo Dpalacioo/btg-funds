@@ -31,5 +31,15 @@
       "category": "FPV"
     }
   ],
-  "transactions": []
+  "transactions": [
+    {
+      "fundId": 1,
+      "fundName": "FPV_BTG_PACTUAL_RECAUDADORA",
+      "amount": 75000,
+      "type": "SUBSCRIPTION",
+      "notificationMethod": "EMAIL",
+      "date": "2026-03-12T13:54:46.880Z",
+      "id": 1
+    }
+  ]
 }

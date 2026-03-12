@@ -13,23 +13,36 @@
       </thead>
 
       <tbody>
-        <tr *ngFor="let transaction of transactions" class="border-t">
-          <td class="px-4 py-3">
-            {{ transaction.fundName }}
-          </td>
+        <ng-container *ngIf="transactions.length > 0; else emptyTransactions">
 
-          <td class="px-4 py-3">
-            {{ transaction.type }}
-          </td>
+          <tr *ngFor="let transaction of transactions" class="border-t">
+            <td class="px-4 py-3">
+              {{ transaction.fundName }}
+            </td>
 
-          <td class="px-4 py-3">
-            {{ transaction.amount | currency: "COP" }}
-          </td>
+            <td class="px-4 py-3">
+              {{ transaction.type }}
+            </td>
 
-          <td class="px-4 py-3">
-            {{ transaction.date | date: "medium" }}
-          </td>
-        </tr>
+            <td class="px-4 py-3">
+              {{ transaction.amount | currency:'COP':'symbol':'1.0-0' }}
+            </td>
+
+            <td class="px-4 py-3">
+              {{ transaction.date | date:'medium' }}
+            </td>
+          </tr>
+
+        </ng-container>
+
+        <ng-template #emptyTransactions>
+          <tr>
+            <td colspan="4" class="text-center py-10 text-gray-500">
+              No hay transacciones registradas aún.
+            </td>
+          </tr>
+        </ng-template>
+
       </tbody>
     </table>
   </div>
