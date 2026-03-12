@@ -1,1 +1,15 @@
-<p>fund-card works!</p>
+<div class="bg-white shadow-md rounded-lg p-6 border">
+  <h2 class="text-xl font-semibold mb-2">
+    {{ fund.name }}
+  </h2>
+
+  <p class="text-gray-600 mb-2">Categoría: {{ fund.category }}</p>
+
+  <p class="text-gray-800 font-medium mb-4">
+    Monto mínimo: {{ fund.minAmount | currency: "COP" }}
+  </p>
+
+  <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+    Suscribirse
+  </button>
+</div>

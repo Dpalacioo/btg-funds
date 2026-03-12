@@ -1,1 +1,23 @@
-<p>header works!</p>
+<header class="bg-white shadow-md">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <h1 class="text-2xl font-bold text-blue-600">BTG Funds</h1>
+
+    <nav class="flex gap-6 text-gray-700 font-medium">
+      <a
+        routerLink="/funds"
+        routerLinkActive="text-blue-600"
+        class="hover:text-blue-600 transition"
+      >
+        Fondos
+      </a>
+
+      <a
+        routerLink="/transactions"
+        routerLinkActive="text-blue-600"
+        class="hover:text-blue-600 transition"
+      >
+        Historial
+      </a>
+    </nav>
+  </div>
+</header>
