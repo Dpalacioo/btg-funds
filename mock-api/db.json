@@ -63,6 +63,14 @@
       "type": "SUBSCRIPTION",
       "date": "2026-03-12T00:43:20.821Z",
       "id": 4
+    },
+    {
+      "fundId": 3,
+      "fundName": "DEUDAPRIVADA",
+      "amount": 50000,
+      "type": "SUBSCRIPTION",
+      "date": "2026-03-12T01:00:18.781Z",
+      "id": 5
     }
   ]
 }

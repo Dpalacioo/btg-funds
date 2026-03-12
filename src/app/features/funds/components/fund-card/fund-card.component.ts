@@ -3,6 +3,7 @@ import { Fund } from '../../../../core/models/fund';
 import { BalanceService } from '../../../../core/services/balance.service';
 import { TransactionsService } from '../../../../core/services/transactions.service';
 import { TransactionType } from '../../../../core/models/transaction-type';
+import { FundsService } from '../../../../core/services/funds.service';
 
 @Component({
   selector: 'app-fund-card',
@@ -15,6 +16,7 @@ export class FundCardComponent {
   constructor(
     private balanceService: BalanceService,
     private transactionsService: TransactionsService,
+    private fundService: FundsService,
   ) {}
 
   subscribeToFund() {
@@ -28,6 +30,8 @@ export class FundCardComponent {
     const newBalance = currentBalance - this.fund.minAmount;
 
     this.balanceService.updateBalance(newBalance);
+
+    this.fundService.subscribeToFund(this.fund);
 
     const transaction = {
       fundId: this.fund.id,
