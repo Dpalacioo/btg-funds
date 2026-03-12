@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { Fund } from '../../../../core/models/fund';
 import { Transaction } from '../../../../core/models/transaction';
 import { TransactionType } from '../../../../core/models/transaction-type';
+import { ToastService } from '../../../../core/services/toast.service';
 
 @Component({
   selector: 'app-user-funds-page',
@@ -23,6 +24,7 @@ export class UserFundsPageComponent {
     private fundsService: FundsService,
     private balanceService: BalanceService,
     private transactionsService: TransactionsService,
+    private toastService: ToastService,
   ) {
     this.userFunds$ = this.fundsService.userFunds$;
   }
@@ -58,6 +60,11 @@ export class UserFundsPageComponent {
     };
 
     this.transactionsService.createTransaction(transaction).subscribe();
+
+    this.toastService.show({
+      text: 'Participación cancelada correctamente',
+      type: 'success',
+    });
 
     this.closeModal();
   }

@@ -4,6 +4,7 @@ import { BalanceService } from '../../../../core/services/balance.service';
 import { TransactionsService } from '../../../../core/services/transactions.service';
 import { TransactionType } from '../../../../core/models/transaction-type';
 import { FundsService } from '../../../../core/services/funds.service';
+import { ToastService } from '../../../../core/services/toast.service';
 
 @Component({
   selector: 'app-fund-card',
@@ -11,7 +12,6 @@ import { FundsService } from '../../../../core/services/funds.service';
   styleUrls: ['./fund-card.component.scss'],
 })
 export class FundCardComponent {
-
   @Input() fund!: Fund;
 
   showConfirmModal = false;
@@ -19,7 +19,8 @@ export class FundCardComponent {
   constructor(
     private balanceService: BalanceService,
     private transactionsService: TransactionsService,
-    private fundService: FundsService
+    private fundService: FundsService,
+    private toastService: ToastService,
   ) {}
 
   openConfirmModal() {
@@ -31,13 +32,15 @@ export class FundCardComponent {
   }
 
   confirmSubscription() {
-
     this.showConfirmModal = false;
 
     const currentBalance = this.balanceService.getBalance();
 
     if (currentBalance < this.fund.minAmount) {
-      alert('No tiene saldo suficiente para suscribirse a este fondo');
+      this.toastService.show({
+        text: 'Saldo insuficiente para suscribirse',
+        type: 'error',
+      });
       return;
     }
 
@@ -57,6 +60,9 @@ export class FundCardComponent {
 
     this.transactionsService.createTransaction(transaction).subscribe();
 
+    this.toastService.show({
+      text: 'Suscripción realizada correctamente',
+      type: 'success',
+    });
   }
-
 }
