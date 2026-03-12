@@ -19,7 +19,9 @@ export class TransactionsPageComponent implements OnInit {
   loadTransactions() {
     this.transactionsService.getTransactions().subscribe({
       next: (data) => {
-        this.transactions = data;
+        this.transactions = data.sort(
+          (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+        );
       },
       error: (err) => {
         console.error('Error loading transactions', err);
