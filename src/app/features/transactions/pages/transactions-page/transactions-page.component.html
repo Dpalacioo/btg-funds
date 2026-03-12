@@ -1,49 +1,64 @@
-<div class="p-10">
+<div class="p-6 md:p-10">
   <h1 class="text-3xl font-bold mb-6">Historial de Transacciones</h1>
 
-  <div class="overflow-x-auto">
-    <table class="min-w-full bg-white shadow rounded-lg">
-      <thead class="bg-gray-100">
-        <tr>
-          <th class="px-4 py-3 text-left">Fondo</th>
-          <th class="px-4 py-3 text-left">Tipo</th>
-          <th class="px-4 py-3 text-left">Monto</th>
-          <th class="px-4 py-3 text-left">Fecha</th>
-        </tr>
-      </thead>
+  <div class="max-w-6xl mx-auto">
+    <div
+      class="hidden md:grid grid-cols-12 gap-4 px-6 py-3 text-xs font-semibold uppercase tracking-wide text-gray-500 border-b border-gray-200"
+    >
+      <div class="col-span-5">Fondo</div>
+      <div class="col-span-2">Tipo</div>
+      <div class="col-span-2">Monto</div>
+      <div class="col-span-3">Fecha</div>
+    </div>
 
-      <tbody>
-        <ng-container *ngIf="transactions.length > 0; else emptyTransactions">
+    <ng-container *ngIf="transactions.length > 0; else emptyTransactions">
+      <div
+        *ngFor="let transaction of transactions"
+        class="grid grid-cols-1 md:grid-cols-12 items-center gap-3 md:gap-4 mb-1 bg-white px-4 md:px-6 py-3 rounded-lg border hover:border-gray-300 hover:bg-gray-50 hover:shadow-md transition-all duration-300"
+      >
+        <div class="md:col-span-5">
+          <div class="text-xs text-gray-500 md:hidden">Fondo</div>
+          <div class="font-semibold text-gray-900 break-words">
+            {{ transaction.fundName }}
+          </div>
+        </div>
 
-          <tr *ngFor="let transaction of transactions" class="border-t">
-            <td class="px-4 py-3">
-              {{ transaction.fundName }}
-            </td>
+        <div class="md:col-span-2">
+          <div class="text-xs text-gray-500 md:hidden">Tipo</div>
 
-            <td class="px-4 py-3">
-              {{ transaction.type }}
-            </td>
+          <span
+            class="text-xs font-semibold px-2 py-1 rounded-full"
+            [ngClass]="{
+              'bg-green-100 text-green-700':
+                transaction.type === TransactionType.SUBSCRIPTION,
+              'bg-red-100 text-red-700':
+                transaction.type === TransactionType.CANCEL,
+            }"
+          >
+            {{ transaction.type }}
+          </span>
+        </div>
 
-            <td class="px-4 py-3">
-              {{ transaction.amount | currency:'COP':'symbol':'1.0-0' }}
-            </td>
+        <div class="md:col-span-2">
+          <div class="text-xs text-gray-500 md:hidden">Monto</div>
+          <div class="text-gray-900 font-semibold">
+            {{ transaction.amount | currency: "COP" : "symbol" : "1.0-0" }}
+          </div>
+        </div>
 
-            <td class="px-4 py-3">
-              {{ transaction.date | date:'medium' }}
-            </td>
-          </tr>
+        <div class="md:col-span-3">
+          <div class="text-xs text-gray-500 md:hidden">Fecha</div>
+          <div class="text-gray-700">
+            {{ transaction.date | date: "medium" }}
+          </div>
+        </div>
+      </div>
+    </ng-container>
 
-        </ng-container>
-
-        <ng-template #emptyTransactions>
-          <tr>
-            <td colspan="4" class="text-center py-10 text-gray-500">
-              No hay transacciones registradas aún.
-            </td>
-          </tr>
-        </ng-template>
-
-      </tbody>
-    </table>
+    <ng-template #emptyTransactions>
+      <div class="text-center py-12 text-gray-500">
+        No hay transacciones registradas aún.
+      </div>
+    </ng-template>
   </div>
 </div>

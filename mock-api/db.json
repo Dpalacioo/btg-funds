@@ -40,6 +40,32 @@
       "notificationMethod": "EMAIL",
       "date": "2026-03-12T13:54:46.880Z",
       "id": 1
+    },
+    {
+      "fundId": 1,
+      "fundName": "FPV_BTG_PACTUAL_RECAUDADORA",
+      "amount": 75000,
+      "type": "SUBSCRIPTION",
+      "notificationMethod": "EMAIL",
+      "date": "2026-03-12T15:19:24.816Z",
+      "id": 2
+    },
+    {
+      "fundId": 3,
+      "fundName": "DEUDAPRIVADA",
+      "amount": 50000,
+      "type": "SUBSCRIPTION",
+      "notificationMethod": "EMAIL",
+      "date": "2026-03-12T15:35:37.805Z",
+      "id": 3
+    },
+    {
+      "fundId": 3,
+      "fundName": "DEUDAPRIVADA",
+      "amount": 50000,
+      "type": "CANCEL",
+      "date": "2026-03-12T15:35:45.180Z",
+      "id": 4
     }
   ]
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TransactionsService } from '../../../../core/services/transactions.service';
 import { Transaction } from '../../../../core/models/transaction';
+import { TransactionType } from '../../../../core/models/transaction-type';
 
 @Component({
   selector: 'app-transactions-page',
@@ -9,6 +10,8 @@ import { Transaction } from '../../../../core/models/transaction';
 })
 export class TransactionsPageComponent implements OnInit {
   transactions: Transaction[] = [];
+
+  TransactionType = TransactionType;
 
   constructor(private transactionsService: TransactionsService) {}
 
