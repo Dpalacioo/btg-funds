@@ -31,5 +31,23 @@
       "category": "FPV"
     }
   ],
-  "transactions": []
+  "transactions": [
+    {
+      "fundId": 4,
+      "fundName": "FDO-ACCIONES",
+      "amount": 250000,
+      "type": "SUBSCRIPTION",
+      "notificationMethod": "EMAIL",
+      "date": "2026-03-12T03:02:37.232Z",
+      "id": 1
+    },
+    {
+      "fundId": 4,
+      "fundName": "FDO-ACCIONES",
+      "amount": 250000,
+      "type": "CANCEL",
+      "date": "2026-03-12T03:03:15.733Z",
+      "id": 2
+    }
+  ]
 }

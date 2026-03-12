@@ -20,7 +20,31 @@
 <app-confirm-modal
   *ngIf="showConfirmModal"
   title="Confirmar suscripción"
-  [message]="'¿Desea suscribirse al fondo ' + fund.name + '?'"
   (confirm)="confirmSubscription()"
   (cancel)="closeConfirmModal()"
-></app-confirm-modal>
+>
+  <form [formGroup]="subscriptionForm" class="space-y-4">
+    <label class="block text-sm font-medium"> Email de notificación </label>
+
+    <input
+      type="email"
+      formControlName="email"
+      class="w-full border rounded px-3 py-2"
+      placeholder="correo@ejemplo.com"
+    />
+
+    <p
+      *ngIf="
+        subscriptionForm.get('email')?.invalid &&
+        subscriptionForm.get('email')?.touched
+      "
+      class="text-red-500 text-sm"
+    >
+      Debe ingresar un email válido
+    </p>
+
+    <div *ngIf="loading" class="text-blue-600 text-sm">
+      Procesando suscripción...
+    </div>
+  </form>
+</app-confirm-modal>

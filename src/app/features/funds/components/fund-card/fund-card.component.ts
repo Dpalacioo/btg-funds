@@ -1,10 +1,14 @@
 import { Component, Input } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 import { Fund } from '../../../../core/models/fund';
 import { BalanceService } from '../../../../core/services/balance.service';
 import { TransactionsService } from '../../../../core/services/transactions.service';
-import { TransactionType } from '../../../../core/models/transaction-type';
 import { FundsService } from '../../../../core/services/funds.service';
 import { ToastService } from '../../../../core/services/toast.service';
+
+import { Transaction } from '../../../../core/models/transaction';
+import { TransactionType } from '../../../../core/models/transaction-type';
 
 @Component({
   selector: 'app-fund-card',
@@ -15,13 +19,21 @@ export class FundCardComponent {
   @Input() fund!: Fund;
 
   showConfirmModal = false;
+  loading = false;
+
+  subscriptionForm: FormGroup;
 
   constructor(
     private balanceService: BalanceService,
     private transactionsService: TransactionsService,
     private fundService: FundsService,
     private toastService: ToastService,
-  ) {}
+    private fb: FormBuilder,
+  ) {
+    this.subscriptionForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+    });
+  }
 
   openConfirmModal() {
     this.showConfirmModal = true;
@@ -32,7 +44,14 @@ export class FundCardComponent {
   }
 
   confirmSubscription() {
-    this.showConfirmModal = false;
+    if (this.subscriptionForm.invalid) {
+      this.toastService.show({
+        text: 'Debe ingresar un email válido',
+        type: 'error',
+      });
+
+      return;
+    }
 
     const currentBalance = this.balanceService.getBalance();
 
@@ -41,28 +60,37 @@ export class FundCardComponent {
         text: 'Saldo insuficiente para suscribirse',
         type: 'error',
       });
+
       return;
     }
 
-    const newBalance = currentBalance - this.fund.minAmount;
+    this.loading = true;
 
-    this.balanceService.updateBalance(newBalance);
+    setTimeout(() => {
+      const newBalance = currentBalance - this.fund.minAmount;
 
-    this.fundService.subscribeToFund(this.fund);
+      this.balanceService.updateBalance(newBalance);
 
-    const transaction = {
-      fundId: this.fund.id,
-      fundName: this.fund.name,
-      amount: this.fund.minAmount,
-      type: TransactionType.SUBSCRIPTION,
-      date: new Date().toISOString(),
-    };
+      this.fundService.subscribeToFund(this.fund);
 
-    this.transactionsService.createTransaction(transaction).subscribe();
+      const transaction: Transaction = {
+        fundId: this.fund.id,
+        fundName: this.fund.name,
+        amount: this.fund.minAmount,
+        type: TransactionType.SUBSCRIPTION,
+        notificationMethod: 'EMAIL',
+        date: new Date().toISOString(),
+      };
 
-    this.toastService.show({
-      text: 'Suscripción realizada correctamente',
-      type: 'success',
-    });
+      this.transactionsService.createTransaction(transaction).subscribe();
+
+      this.toastService.show({
+        text: 'Suscripción realizada correctamente. Se enviará notificación al email.',
+        type: 'success',
+      });
+
+      this.loading = false;
+      this.closeConfirmModal();
+    }, 800);
   }
 }
