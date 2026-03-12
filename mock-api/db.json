@@ -33,22 +33,40 @@
   ],
   "transactions": [
     {
+      "fundId": 1,
+      "fundName": "FPV_BTG_PACTUAL_RECAUDADORA",
+      "amount": 75000,
+      "type": "SUBSCRIPTION",
+      "notificationMethod": "EMAIL",
+      "date": "2026-03-12T17:03:11.974Z",
+      "id": 1
+    },
+    {
+      "fundId": 1,
+      "fundName": "FPV_BTG_PACTUAL_RECAUDADORA",
+      "amount": 75000,
+      "type": "SUBSCRIPTION",
+      "notificationMethod": "EMAIL",
+      "date": "2026-03-12T17:03:33.981Z",
+      "id": 2
+    },
+    {
+      "fundId": 5,
+      "fundName": "FPV_BTG_PACTUAL_DINAMICA",
+      "amount": 100000,
+      "type": "SUBSCRIPTION",
+      "notificationMethod": "EMAIL",
+      "date": "2026-03-12T17:05:47.965Z",
+      "id": 3
+    },
+    {
       "fundId": 4,
       "fundName": "FDO-ACCIONES",
       "amount": 250000,
       "type": "SUBSCRIPTION",
       "notificationMethod": "EMAIL",
-      "date": "2026-03-12T16:29:05.945Z",
-      "id": 1
-    },
-    {
-      "fundId": 2,
-      "fundName": "FPV_BTG_PACTUAL_ECOPETROL",
-      "amount": 125000,
-      "type": "SUBSCRIPTION",
-      "notificationMethod": "EMAIL",
-      "date": "2026-03-12T16:30:39.878Z",
-      "id": 2
+      "date": "2026-03-12T17:05:58.084Z",
+      "id": 4
     }
   ]
 }
