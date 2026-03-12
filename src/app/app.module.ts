@@ -8,10 +8,17 @@ import { provideHttpClient } from '@angular/common/http';
 
 import { FundsModule } from './features/funds/funds.module';
 import { SharedModule } from './shared/shared.module';
+import { TransactionsModule } from './features/transactions/transactions.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, FundsModule, SharedModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FundsModule,
+    SharedModule,
+    TransactionsModule,
+  ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent],
 })

@@ -47,6 +47,22 @@
       "type": "SUBSCRIPTION",
       "date": "2026-03-12T00:31:56.588Z",
       "id": 2
+    },
+    {
+      "fundId": 5,
+      "fundName": "FPV_BTG_PACTUAL_DINAMICA",
+      "amount": 100000,
+      "type": "SUBSCRIPTION",
+      "date": "2026-03-12T00:33:34.653Z",
+      "id": 3
+    },
+    {
+      "fundId": 4,
+      "fundName": "FDO-ACCIONES",
+      "amount": 250000,
+      "type": "SUBSCRIPTION",
+      "date": "2026-03-12T00:43:20.821Z",
+      "id": 4
     }
   ]
 }

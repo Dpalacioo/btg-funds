@@ -1,10 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { TransactionsService } from '../../../../core/services/transactions.service';
+import { Transaction } from '../../../../core/models/transaction';
 
 @Component({
   selector: 'app-transactions-page',
   templateUrl: './transactions-page.component.html',
-  styleUrl: './transactions-page.component.scss'
+  styleUrls: ['./transactions-page.component.scss'],
 })
-export class TransactionsPageComponent {
+export class TransactionsPageComponent implements OnInit {
+  transactions: Transaction[] = [];
 
+  constructor(private transactionsService: TransactionsService) {}
+
+  ngOnInit(): void {
+    this.loadTransactions();
+  }
+
+  loadTransactions() {
+    this.transactionsService.getTransactions().subscribe({
+      next: (data) => {
+        this.transactions = data;
+      },
+      error: (err) => {
+        console.error('Error loading transactions', err);
+      },
+    });
+  }
 }

@@ -1,1 +1,36 @@
-<p>transactions-page works!</p>
+<div class="p-10">
+  <h1 class="text-3xl font-bold mb-6">Historial de Transacciones</h1>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full bg-white shadow rounded-lg">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="px-4 py-3 text-left">Fondo</th>
+          <th class="px-4 py-3 text-left">Tipo</th>
+          <th class="px-4 py-3 text-left">Monto</th>
+          <th class="px-4 py-3 text-left">Fecha</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let transaction of transactions" class="border-t">
+          <td class="px-4 py-3">
+            {{ transaction.fundName }}
+          </td>
+
+          <td class="px-4 py-3">
+            {{ transaction.type }}
+          </td>
+
+          <td class="px-4 py-3">
+            {{ transaction.amount | currency: "COP" }}
+          </td>
+
+          <td class="px-4 py-3">
+            {{ transaction.date | date: "medium" }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
