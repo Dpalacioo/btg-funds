@@ -1,0 +1,28 @@
+<div class="p-10">
+  <h1 class="text-3xl font-bold mb-6">Mis Fondos</h1>
+
+  <div
+    *ngFor="let fund of userFunds$ | async"
+    class="bg-white shadow rounded p-6 mb-4 flex justify-between items-center"
+  >
+    <div>
+      <h2 class="font-semibold text-lg">
+        {{ fund.name }}
+      </h2>
+
+      <p class="text-gray-500">Categoría: {{ fund.category }}</p>
+
+      <p class="text-gray-700">
+        Monto invertido:
+        {{ fund.minAmount | currency: "COP" }}
+      </p>
+    </div>
+
+    <button
+      (click)="cancelFund(fund)"
+      class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition"
+    >
+      Cancelar
+    </button>
+  </div>
+</div>
