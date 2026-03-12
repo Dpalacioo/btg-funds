@@ -31,5 +31,22 @@
       "category": "FPV"
     }
   ],
-  "transactions": []
+  "transactions": [
+    {
+      "fundId": 1,
+      "fundName": "FPV_BTG_PACTUAL_RECAUDADORA",
+      "amount": 75000,
+      "type": "SUBSCRIPTION",
+      "date": "2026-03-12T00:31:26.581Z",
+      "id": 1
+    },
+    {
+      "fundId": 2,
+      "fundName": "FPV_BTG_PACTUAL_ECOPETROL",
+      "amount": 125000,
+      "type": "SUBSCRIPTION",
+      "date": "2026-03-12T00:31:56.588Z",
+      "id": 2
+    }
+  ]
 }

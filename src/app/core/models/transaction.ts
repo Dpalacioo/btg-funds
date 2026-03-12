@@ -1,9 +1,11 @@
+import { TransactionType } from './transaction-type';
+
 export interface Transaction {
   id?: number;
   fundId: number;
   fundName: string;
   amount: number;
-  type: 'SUBSCRIPTION' | 'CANCEL';
+  type: TransactionType;
   date: string;
   notificationMethod?: 'EMAIL' | 'SMS';
 }
