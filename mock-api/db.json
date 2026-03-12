@@ -79,6 +79,38 @@
       "type": "CANCEL",
       "date": "2026-03-12T01:41:19.845Z",
       "id": 6
+    },
+    {
+      "fundId": 1,
+      "fundName": "FPV_BTG_PACTUAL_RECAUDADORA",
+      "amount": 75000,
+      "type": "SUBSCRIPTION",
+      "date": "2026-03-12T01:57:32.517Z",
+      "id": 7
+    },
+    {
+      "fundId": 1,
+      "fundName": "FPV_BTG_PACTUAL_RECAUDADORA",
+      "amount": 75000,
+      "type": "CANCEL",
+      "date": "2026-03-12T01:57:37.837Z",
+      "id": 8
+    },
+    {
+      "fundId": 2,
+      "fundName": "FPV_BTG_PACTUAL_ECOPETROL",
+      "amount": 125000,
+      "type": "SUBSCRIPTION",
+      "date": "2026-03-12T02:16:35.733Z",
+      "id": 9
+    },
+    {
+      "fundId": 2,
+      "fundName": "FPV_BTG_PACTUAL_ECOPETROL",
+      "amount": 125000,
+      "type": "CANCEL",
+      "date": "2026-03-12T02:16:41.573Z",
+      "id": 10
     }
   ]
 }

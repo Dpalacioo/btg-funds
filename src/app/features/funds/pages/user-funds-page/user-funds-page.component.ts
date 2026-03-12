@@ -16,6 +16,9 @@ import { TransactionType } from '../../../../core/models/transaction-type';
 export class UserFundsPageComponent {
   userFunds$: Observable<Fund[]>;
 
+  selectedFund: Fund | null = null;
+  showConfirmModal = false;
+
   constructor(
     private fundsService: FundsService,
     private balanceService: BalanceService,
@@ -24,7 +27,21 @@ export class UserFundsPageComponent {
     this.userFunds$ = this.fundsService.userFunds$;
   }
 
-  cancelFund(fund: Fund) {
+  openCancelModal(fund: Fund) {
+    this.selectedFund = fund;
+    this.showConfirmModal = true;
+  }
+
+  closeModal() {
+    this.showConfirmModal = false;
+    this.selectedFund = null;
+  }
+
+  confirmCancel() {
+    if (!this.selectedFund) return;
+
+    const fund = this.selectedFund;
+
     const currentBalance = this.balanceService.getBalance();
     const newBalance = currentBalance + fund.minAmount;
 
@@ -42,6 +59,6 @@ export class UserFundsPageComponent {
 
     this.transactionsService.createTransaction(transaction).subscribe();
 
-    alert('Participación cancelada correctamente');
+    this.closeModal();
   }
 }

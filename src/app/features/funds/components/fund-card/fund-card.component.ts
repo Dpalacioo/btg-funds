@@ -11,15 +11,29 @@ import { FundsService } from '../../../../core/services/funds.service';
   styleUrls: ['./fund-card.component.scss'],
 })
 export class FundCardComponent {
+
   @Input() fund!: Fund;
+
+  showConfirmModal = false;
 
   constructor(
     private balanceService: BalanceService,
     private transactionsService: TransactionsService,
-    private fundService: FundsService,
+    private fundService: FundsService
   ) {}
 
-  subscribeToFund() {
+  openConfirmModal() {
+    this.showConfirmModal = true;
+  }
+
+  closeConfirmModal() {
+    this.showConfirmModal = false;
+  }
+
+  confirmSubscription() {
+
+    this.showConfirmModal = false;
+
     const currentBalance = this.balanceService.getBalance();
 
     if (currentBalance < this.fund.minAmount) {
@@ -43,6 +57,6 @@ export class FundCardComponent {
 
     this.transactionsService.createTransaction(transaction).subscribe();
 
-    alert('Suscripción exitosa');
   }
+
 }

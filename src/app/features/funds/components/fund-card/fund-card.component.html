@@ -10,9 +10,17 @@
   </p>
 
   <button
-    (click)="subscribeToFund()"
+    (click)="openConfirmModal()"
     class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
   >
     Suscribirse
   </button>
 </div>
+
+<app-confirm-modal
+  *ngIf="showConfirmModal"
+  title="Confirmar suscripción"
+  [message]="'¿Desea suscribirse al fondo ' + fund.name + '?'"
+  (confirm)="confirmSubscription()"
+  (cancel)="closeConfirmModal()"
+></app-confirm-modal>
