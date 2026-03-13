@@ -1,6 +1,6 @@
 <div class="p-6 md:p-10">
   <h1 class="text-3xl font-bold mb-8 text-gray-900 dark:text-gray-100">
-    Mis Fondos
+    {{ "myFunds.title" | translate }}
   </h1>
 
   <ng-container *ngIf="userFunds$ | async as funds">
@@ -24,7 +24,7 @@
               <p
                 class="text-xs uppercase tracking-wide text-gray-400 dark:text-gray-500 font-medium"
               >
-                Categoría
+                {{ "myFunds.category" | translate }}
               </p>
 
               <span
@@ -44,7 +44,7 @@
               <p
                 class="text-xs uppercase tracking-wide text-gray-400 dark:text-gray-500 font-medium"
               >
-                Monto invertido
+                {{ "myFunds.investedAmount" | translate }}
               </p>
 
               <p
@@ -60,7 +60,7 @@
           (click)="openCancelModal(fund)"
           class="mt-5 w-full bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md transition"
         >
-          Cancelar
+          {{ "myFunds.cancel" | translate }}
         </button>
       </div>
     </div>
@@ -68,15 +68,15 @@
 
   <ng-template #emptyFunds>
     <div class="text-center py-12 text-gray-500 dark:text-gray-400">
-      Aún no estás suscrito a ningún fondo.
+      {{ "myFunds.empty" | translate }}
     </div>
   </ng-template>
 </div>
 
 <app-confirm-modal
   *ngIf="showConfirmModal"
-  title="Cancelar participación"
-  [message]="'¿Desea cancelar su participación en este fondo?'"
+  [title]="'modal.cancelParticipation' | translate"
+  [message]="'modal.cancelMessage' | translate"
   (confirm)="confirmCancel()"
   (cancel)="closeModal()"
 ></app-confirm-modal>

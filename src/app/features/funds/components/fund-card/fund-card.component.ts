@@ -46,10 +46,9 @@ export class FundCardComponent {
   confirmSubscription() {
     if (this.subscriptionForm.invalid) {
       this.toastService.show({
-        text: 'Debe ingresar un email válido',
+        text: 'errors.invalidEmail',
         type: 'error',
       });
-
       return;
     }
 
@@ -57,10 +56,9 @@ export class FundCardComponent {
 
     if (currentBalance < this.fund.minAmount) {
       this.toastService.show({
-        text: 'Saldo insuficiente para suscribirse',
+        text: 'errors.insufficientBalance',
         type: 'error',
       });
-
       return;
     }
 
@@ -85,7 +83,7 @@ export class FundCardComponent {
       this.transactionsService.createTransaction(transaction).subscribe();
 
       this.toastService.show({
-        text: 'Suscripción realizada correctamente. Se enviará notificación al email.',
+        text: 'toast.subscriptionSuccess',
         type: 'success',
       });
 

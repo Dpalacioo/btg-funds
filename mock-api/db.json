@@ -66,6 +66,146 @@
       "notificationMethod": "EMAIL",
       "date": "2026-03-13T01:11:26.370Z",
       "id": 4
+    },
+    {
+      "fundId": 1,
+      "fundName": "FPV_BTG_PACTUAL_RECAUDADORA",
+      "amount": 75000,
+      "type": "SUBSCRIPTION",
+      "notificationMethod": "EMAIL",
+      "date": "2026-03-13T01:16:41.912Z",
+      "id": 5
+    },
+    {
+      "fundId": 1,
+      "fundName": "FPV_BTG_PACTUAL_RECAUDADORA",
+      "amount": 75000,
+      "type": "SUBSCRIPTION",
+      "notificationMethod": "EMAIL",
+      "date": "2026-03-13T12:47:02.174Z",
+      "id": 6
+    },
+    {
+      "fundId": 1,
+      "fundName": "FPV_BTG_PACTUAL_RECAUDADORA",
+      "amount": 75000,
+      "type": "SUBSCRIPTION",
+      "notificationMethod": "EMAIL",
+      "date": "2026-03-13T12:56:06.137Z",
+      "id": 7
+    },
+    {
+      "fundId": 4,
+      "fundName": "FDO-ACCIONES",
+      "amount": 250000,
+      "type": "SUBSCRIPTION",
+      "notificationMethod": "EMAIL",
+      "date": "2026-03-13T13:28:10.940Z",
+      "id": 8
+    },
+    {
+      "fundId": 1,
+      "fundName": "FPV_BTG_PACTUAL_RECAUDADORA",
+      "amount": 75000,
+      "type": "SUBSCRIPTION",
+      "notificationMethod": "EMAIL",
+      "date": "2026-03-13T13:36:29.314Z",
+      "id": 9
+    },
+    {
+      "fundId": 1,
+      "fundName": "FPV_BTG_PACTUAL_RECAUDADORA",
+      "amount": 75000,
+      "type": "SUBSCRIPTION",
+      "notificationMethod": "EMAIL",
+      "date": "2026-03-13T13:42:16.590Z",
+      "id": 10
+    },
+    {
+      "fundId": 1,
+      "fundName": "FPV_BTG_PACTUAL_RECAUDADORA",
+      "amount": 75000,
+      "type": "CANCEL",
+      "date": "2026-03-13T13:42:32.376Z",
+      "id": 11
+    },
+    {
+      "fundId": 4,
+      "fundName": "FDO-ACCIONES",
+      "amount": 250000,
+      "type": "SUBSCRIPTION",
+      "notificationMethod": "EMAIL",
+      "date": "2026-03-13T13:46:09.176Z",
+      "id": 12
+    },
+    {
+      "fundId": 4,
+      "fundName": "FDO-ACCIONES",
+      "amount": 250000,
+      "type": "CANCEL",
+      "date": "2026-03-13T13:46:36.447Z",
+      "id": 13
+    },
+    {
+      "fundId": 1,
+      "fundName": "FPV_BTG_PACTUAL_RECAUDADORA",
+      "amount": 75000,
+      "type": "SUBSCRIPTION",
+      "notificationMethod": "EMAIL",
+      "date": "2026-03-13T13:51:20.632Z",
+      "id": 14
+    },
+    {
+      "fundId": 1,
+      "fundName": "FPV_BTG_PACTUAL_RECAUDADORA",
+      "amount": 75000,
+      "type": "SUBSCRIPTION",
+      "notificationMethod": "EMAIL",
+      "date": "2026-03-13T14:05:31.804Z",
+      "id": 15
+    },
+    {
+      "fundId": 1,
+      "fundName": "FPV_BTG_PACTUAL_RECAUDADORA",
+      "amount": 75000,
+      "type": "CANCEL",
+      "date": "2026-03-13T14:05:38.471Z",
+      "id": 16
+    },
+    {
+      "fundId": 1,
+      "fundName": "FPV_BTG_PACTUAL_RECAUDADORA",
+      "amount": 75000,
+      "type": "SUBSCRIPTION",
+      "notificationMethod": "EMAIL",
+      "date": "2026-03-13T14:08:05.594Z",
+      "id": 17
+    },
+    {
+      "fundId": 1,
+      "fundName": "FPV_BTG_PACTUAL_RECAUDADORA",
+      "amount": 75000,
+      "type": "CANCEL",
+      "date": "2026-03-13T14:08:10.303Z",
+      "id": 18
+    },
+    {
+      "fundId": 4,
+      "fundName": "FDO-ACCIONES",
+      "amount": 250000,
+      "type": "SUBSCRIPTION",
+      "notificationMethod": "EMAIL",
+      "date": "2026-03-13T14:08:23.844Z",
+      "id": 19
+    },
+    {
+      "fundId": 4,
+      "fundName": "FDO-ACCIONES",
+      "amount": 250000,
+      "type": "SUBSCRIPTION",
+      "notificationMethod": "EMAIL",
+      "date": "2026-03-13T14:08:28.984Z",
+      "id": 20
     }
   ]
 }

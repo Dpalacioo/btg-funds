@@ -62,7 +62,7 @@ export class UserFundsPageComponent {
     this.transactionsService.createTransaction(transaction).subscribe();
 
     this.toastService.show({
-      text: 'Participación cancelada correctamente',
+      text: 'toast.cancelSuccess',
       type: 'success',
     });
 

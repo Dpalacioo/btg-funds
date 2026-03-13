@@ -1,0 +1,58 @@
+{
+  "header": {
+    "funds": "Funds",
+    "history": "History",
+    "myFunds": "My Funds",
+    "balance": "Balance"
+  },
+
+  "funds": {
+    "title": "Available Funds",
+    "name": "Name",
+    "category": "Category",
+    "minAmount": "Minimum Amount",
+    "action": "Action",
+    "subscribe": "Subscribe"
+  },
+
+  "myFunds": {
+    "title": "My Funds",
+    "category": "Category",
+    "investedAmount": "Invested Amount",
+    "cancel": "Cancel",
+    "empty": "You are not subscribed to any fund yet."
+  },
+
+  "transactions": {
+    "title": "Transaction History",
+    "fund": "Fund",
+    "type": "Type",
+    "amount": "Amount",
+    "date": "Date",
+    "empty": "No transactions registered yet."
+  },
+
+  "modal": {
+    "confirmSubscription": "Confirm Subscription",
+    "cancelParticipation": "Cancel Participation",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "notificationEmail": "Notification Email",
+    "processing": "Processing...",
+    "cancelMessage": "Do you want to cancel your participation in this fund?"
+  },
+
+  "errors": {
+    "invalidEmail": "You must enter a valid email",
+    "insufficientBalance": "Insufficient balance to subscribe to this fund."
+  },
+
+  "footer": {
+    "portfolio": "View Portfolio"
+  },
+
+  "toast": {
+    "subscriptionSuccess": "Subscription completed successfully",
+    "cancelSuccess": "Participation cancelled successfully"
+  }
+}

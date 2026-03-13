@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
 
 export interface ToastMessage {
   text: string;
@@ -13,10 +14,23 @@ export class ToastService {
   private toastSubject = new BehaviorSubject<ToastMessage | null>(null);
   toast$ = this.toastSubject.asObservable();
 
-  show(message: ToastMessage) {
-    this.toastSubject.next(message);
+  private timeoutId?: ReturnType<typeof setTimeout>;
 
-    setTimeout(() => {
+  constructor(private translate: TranslateService) {}
+
+  show(message: ToastMessage) {
+    if (this.timeoutId) {
+      clearTimeout(this.timeoutId);
+    }
+
+    const translatedText = this.translate.instant(message.text);
+
+    this.toastSubject.next({
+      ...message,
+      text: translatedText,
+    });
+
+    this.timeoutId = setTimeout(() => {
       this.toastSubject.next(null);
     }, 3000);
   }

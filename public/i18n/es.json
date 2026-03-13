@@ -1,0 +1,58 @@
+{
+  "header": {
+    "funds": "Fondos",
+    "history": "Historial",
+    "myFunds": "Mis Fondos",
+    "balance": "Saldo"
+  },
+
+  "funds": {
+    "title": "Fondos disponibles",
+    "name": "Nombre",
+    "category": "Categoría",
+    "minAmount": "Monto mínimo",
+    "action": "Acción",
+    "subscribe": "Suscribirse"
+  },
+
+  "myFunds": {
+    "title": "Mis Fondos",
+    "category": "Categoría",
+    "investedAmount": "Monto invertido",
+    "cancel": "Cancelar",
+    "empty": "Aún no estás suscrito a ningún fondo."
+  },
+
+  "transactions": {
+    "title": "Historial de Transacciones",
+    "fund": "Fondo",
+    "type": "Tipo",
+    "amount": "Monto",
+    "date": "Fecha",
+    "empty": "No hay transacciones registradas aún."
+  },
+
+  "modal": {
+    "confirmSubscription": "Confirmar suscripción",
+    "cancelParticipation": "Cancelar participación",
+    "confirm": "Confirmar",
+    "cancel": "Cancelar",
+    "notificationEmail": "Email de notificación",
+    "processing": "Procesando...",
+    "cancelMessage": "¿Desea cancelar su participación en este fondo?"
+  },
+
+  "errors": {
+    "invalidEmail": "Debe ingresar un email válido",
+    "insufficientBalance": "No hay saldo suficiente para suscribirse a este fondo."
+  },
+
+  "footer": {
+    "portfolio": "Ver Portfolio"
+  },
+
+  "toast": {
+    "subscriptionSuccess": "Suscripción realizada correctamente",
+    "cancelSuccess": "Participación cancelada correctamente"
+  }
+}

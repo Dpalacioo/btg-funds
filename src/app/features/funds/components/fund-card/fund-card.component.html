@@ -33,20 +33,24 @@
       [disabled]="loading"
       class="w-full md:w-[150px] bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition disabled:opacity-50"
     >
-      {{ loading ? "Procesando..." : "Suscribirse" }}
+      {{
+        loading
+          ? ("modal.processing" | translate)
+          : ("funds.subscribe" | translate)
+      }}
     </button>
   </div>
 </div>
 
 <app-confirm-modal
   *ngIf="showConfirmModal"
-  title="Confirmar suscripción"
+  [title]="'modal.confirmSubscription' | translate"
   (confirm)="confirmSubscription()"
   (cancel)="closeConfirmModal()"
 >
   <form [formGroup]="subscriptionForm" class="space-y-4">
     <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">
-      Email de notificación
+      {{ "modal.notificationEmail" | translate }}
     </label>
 
     <input
@@ -63,11 +67,11 @@
       "
       class="text-red-500 text-sm"
     >
-      Debe ingresar un email válido
+      {{ "errors.invalidEmail" | translate }}
     </p>
 
     <div *ngIf="loading" class="text-blue-600 dark:text-blue-400 text-sm">
-      Procesando suscripción...
+      {{ "modal.processing" | translate }}
     </div>
   </form>
 </app-confirm-modal>

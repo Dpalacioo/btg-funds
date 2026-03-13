@@ -8,7 +8,7 @@
       </h1>
 
       <div class="text-gray-800 dark:text-gray-200 font-semibold lg:hidden">
-        Saldo:
+        {{ "header.balance" | translate }}:
         <span class="text-green-600 dark:text-green-400">
           {{ balance$ | async | currency: "COP" : "symbol" : "1.0-0" }}
         </span>
@@ -22,14 +22,14 @@
         routerLink="/funds"
         routerLinkActive="text-blue-600 dark:text-blue-400"
       >
-        Fondos
+        {{ "header.funds" | translate }}
       </a>
 
       <a
         routerLink="/transactions"
         routerLinkActive="text-blue-600 dark:text-blue-400"
       >
-        Historial
+        {{ "header.history" | translate }}
       </a>
 
       <a
@@ -37,18 +37,19 @@
         routerLinkActive="text-blue-600 dark:text-blue-400"
         class="hover:text-blue-600 dark:hover:text-blue-400 transition"
       >
-        Mis Fondos
+        {{ "header.myFunds" | translate }}
       </a>
     </nav>
 
     <div
       class="flex items-center gap-3 text-gray-800 dark:text-gray-200 font-semibold hidden lg:flex"
     >
-      Saldo:
+      {{ "header.balance" | translate }}:
       <span class="text-green-600 dark:text-green-400">
         {{ balance$ | async | currency: "COP" : "symbol" : "1.0-0" }}
       </span>
 
+      <!-- Toggle theme -->
       <div
         (click)="toggleTheme()"
         class="relative w-14 h-7 flex items-center rounded-full bg-gray-200 dark:bg-gray-700 cursor-pointer transition-colors duration-300"
@@ -64,6 +65,15 @@
           ></ng-icon>
         </div>
       </div>
+
+      <select
+        [value]="currentLanguage"
+        (change)="changeLanguage($any($event.target).value)"
+        class="ml-2 border border-gray-300 dark:border-gray-600 rounded px-2 py-1 text-sm bg-white dark:bg-gray-800"
+      >
+        <option value="es">ES</option>
+        <option value="en">EN</option>
+      </select>
     </div>
   </div>
 </header>
