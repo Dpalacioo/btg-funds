@@ -1,8 +1,12 @@
 <div class="max-w-4xl lg:max-w-6xl mx-auto px-4 md:px-6 py-10">
-  <h1 class="text-3xl font-bold mb-8">Fondos disponibles</h1>
+
+  <h1 class="text-3xl font-bold mb-8 text-gray-900 dark:text-gray-100">
+    Fondos disponibles
+  </h1>
 
   <div
-    class="hidden md:grid grid-cols-12 gap-4 px-6 py-3 text-xs font-semibold uppercase tracking-wide text-gray-500  border-gray-200"
+    class="hidden md:grid grid-cols-12 gap-4 px-6 py-3 text-xs font-semibold uppercase tracking-wide
+           text-gray-500 dark:text-gray-400 border-gray-200 dark:border-gray-700"
   >
     <div class="col-span-5">Nombre</div>
     <div class="col-span-2">Categoría</div>
@@ -10,10 +14,11 @@
     <div class="col-span-2 text-right">Acción</div>
   </div>
 
-  <div class="mt-2 rounded-lg divide-y">
+  <div class="mt-2 rounded-lg divide-y divide-gray-200 dark:divide-gray-700">
     <app-fund-card
       *ngFor="let fund of funds"
       [fund]="fund"
     ></app-fund-card>
   </div>
+
 </div>

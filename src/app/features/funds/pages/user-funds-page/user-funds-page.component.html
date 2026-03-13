@@ -1,5 +1,7 @@
 <div class="p-6 md:p-10">
-  <h1 class="text-3xl font-bold mb-8">Mis Fondos</h1>
+  <h1 class="text-3xl font-bold mb-8 text-gray-900 dark:text-gray-100">
+    Mis Fondos
+  </h1>
 
   <ng-container *ngIf="userFunds$ | async as funds">
     <div
@@ -8,17 +10,19 @@
     >
       <div
         *ngFor="let fund of funds"
-        class="bg-white border border-gray-200 rounded-lg p-5 hover:border-gray-300 hover:bg-gray-50 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+        class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-5 hover:border-gray-300 dark:hover:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
       >
         <div class="space-y-4">
-          <h2 class="font-semibold text-gray-900 text-base truncate">
+          <h2
+            class="font-semibold text-gray-900 dark:text-gray-100 text-base truncate"
+          >
             {{ fund.name }}
           </h2>
 
           <div class="flex justify-between items-start gap-4">
             <div>
               <p
-                class="text-xs uppercase tracking-wide text-gray-400 font-medium"
+                class="text-xs uppercase tracking-wide text-gray-400 dark:text-gray-500 font-medium"
               >
                 Categoría
               </p>
@@ -26,8 +30,10 @@
               <span
                 class="inline-block text-xs font-semibold px-2 py-1 rounded-full mt-1"
                 [ngClass]="{
-                  'bg-blue-100 text-blue-700': fund.category === 'FPV',
-                  'bg-green-100 text-green-700': fund.category === 'FIC',
+                  'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300':
+                    fund.category === 'FPV',
+                  'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300':
+                    fund.category === 'FIC',
                 }"
               >
                 {{ fund.category }}
@@ -36,12 +42,14 @@
 
             <div class="text-right">
               <p
-                class="text-xs uppercase tracking-wide text-gray-400 font-medium"
+                class="text-xs uppercase tracking-wide text-gray-400 dark:text-gray-500 font-medium"
               >
                 Monto invertido
               </p>
 
-              <p class="font-semibold text-gray-900 text-lg mt-1">
+              <p
+                class="font-semibold text-gray-900 dark:text-gray-100 text-lg mt-1"
+              >
                 {{ fund.minAmount | currency: "COP" : "symbol" : "1.0-0" }}
               </p>
             </div>
@@ -50,7 +58,7 @@
 
         <button
           (click)="openCancelModal(fund)"
-          class="mt-5 w-full bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition"
+          class="mt-5 w-full bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md transition"
         >
           Cancelar
         </button>
@@ -59,7 +67,7 @@
   </ng-container>
 
   <ng-template #emptyFunds>
-    <div class="text-center py-12 text-gray-500">
+    <div class="text-center py-12 text-gray-500 dark:text-gray-400">
       Aún no estás suscrito a ningún fondo.
     </div>
   </ng-template>

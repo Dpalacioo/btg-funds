@@ -1,9 +1,11 @@
 <div class="p-6 md:p-10">
-  <h1 class="text-3xl font-bold mb-6">Historial de Transacciones</h1>
+  <h1 class="text-3xl font-bold mb-6 text-gray-900 dark:text-gray-100">
+    Historial de Transacciones
+  </h1>
 
   <div class="max-w-6xl mx-auto">
     <div
-      class="hidden md:grid grid-cols-12 gap-4 px-6 py-3 text-xs font-semibold uppercase tracking-wide text-gray-500 border-gray-200"
+      class="hidden md:grid grid-cols-12 gap-4 px-6 py-3 text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 border-gray-200 dark:border-gray-700"
     >
       <div class="col-span-5">Fondo</div>
       <div class="col-span-2">Tipo</div>
@@ -14,31 +16,36 @@
     <ng-container *ngIf="transactions.length > 0; else emptyTransactions">
       <div
         *ngFor="let transaction of transactions"
-        class="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-4 mb-2 bg-white px-4 md:px-6 py-4 md:py-3 rounded-lg border border-gray-200 hover:border-gray-300 hover:bg-gray-50 hover:shadow-md transition-all duration-300"
+        class="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-4 mb-2 bg-white dark:bg-gray-800 px-4 md:px-6 py-4 md:py-3 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 hover:shadow-md transition-all duration-300"
       >
+        <!-- MOBILE -->
         <div class="md:hidden">
-          <div class="font-semibold text-gray-900 break-words">
+          <div
+            class="font-semibold text-gray-900 dark:text-gray-100 break-words"
+          >
             {{ transaction.fundName }}
           </div>
 
-          <div class="text-sm text-gray-500">
+          <div class="text-sm text-gray-500 dark:text-gray-400">
             {{ transaction.date | date: "medium" }}
           </div>
         </div>
 
+        <!-- DESKTOP -->
         <div
-          class="hidden md:block md:col-span-5 font-semibold text-gray-900 break-words"
+          class="hidden md:block md:col-span-5 font-semibold text-gray-900 dark:text-gray-100 break-words"
         >
           {{ transaction.fundName }}
         </div>
 
+        <!-- TYPE -->
         <div class="hidden md:block md:col-span-2">
           <span
             class="text-xs font-semibold px-2 py-1 rounded-full"
             [ngClass]="{
-              'bg-green-100 text-green-700':
+              'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300':
                 transaction.type === TransactionType.SUBSCRIPTION,
-              'bg-red-100 text-red-700':
+              'bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300':
                 transaction.type === TransactionType.CANCEL,
             }"
           >
@@ -46,28 +53,35 @@
           </span>
         </div>
 
-        <div class="hidden md:block md:col-span-2 text-gray-900 font-semibold">
+        <!-- AMOUNT -->
+        <div
+          class="hidden md:block md:col-span-2 text-gray-900 dark:text-gray-100 font-semibold"
+        >
           {{ transaction.amount | currency: "COP" : "symbol" : "1.0-0" }}
         </div>
 
-        <div class="hidden md:block md:col-span-3 text-gray-700">
+        <!-- DATE -->
+        <div
+          class="hidden md:block md:col-span-3 text-gray-700 dark:text-gray-300"
+        >
           {{ transaction.date | date: "medium" }}
         </div>
 
+        <!-- MOBILE FOOTER -->
         <div class="flex justify-between items-center md:hidden mt-2">
           <span
             class="text-xs font-semibold px-2 py-1 rounded-full"
             [ngClass]="{
-              'bg-green-100 text-green-700':
+              'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300':
                 transaction.type === TransactionType.SUBSCRIPTION,
-              'bg-red-100 text-red-700':
+              'bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300':
                 transaction.type === TransactionType.CANCEL,
             }"
           >
             {{ transaction.type }}
           </span>
 
-          <span class="font-semibold text-gray-900">
+          <span class="font-semibold text-gray-900 dark:text-gray-100">
             {{ transaction.amount | currency: "COP" : "symbol" : "1.0-0" }}
           </span>
         </div>
@@ -75,7 +89,7 @@
     </ng-container>
 
     <ng-template #emptyTransactions>
-      <div class="text-center py-12 text-gray-500">
+      <div class="text-center py-12 text-gray-500 dark:text-gray-400">
         No hay transacciones registradas aún.
       </div>
     </ng-template>

@@ -40,6 +40,23 @@
       "notificationMethod": "EMAIL",
       "date": "2026-03-12T17:44:12.707Z",
       "id": 1
+    },
+    {
+      "fundId": 1,
+      "fundName": "FPV_BTG_PACTUAL_RECAUDADORA",
+      "amount": 75000,
+      "type": "SUBSCRIPTION",
+      "notificationMethod": "EMAIL",
+      "date": "2026-03-13T01:07:52.118Z",
+      "id": 2
+    },
+    {
+      "fundId": 1,
+      "fundName": "FPV_BTG_PACTUAL_RECAUDADORA",
+      "amount": 75000,
+      "type": "CANCEL",
+      "date": "2026-03-13T01:08:12.013Z",
+      "id": 3
     }
   ]
 }

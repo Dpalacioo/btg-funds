@@ -6,6 +6,9 @@ import { ConfirmModalComponent } from './components/confirm-modal/confirm-modal.
 import { ToastComponent } from './components/toast/toast.component';
 import { FooterComponent } from './components/footer/footer.component';
 
+import { NgIconsModule } from '@ng-icons/core';
+import { heroMoon, heroSun } from '@ng-icons/heroicons/outline';
+
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -13,12 +16,21 @@ import { FooterComponent } from './components/footer/footer.component';
     ToastComponent,
     FooterComponent,
   ],
-  imports: [CommonModule, RouterModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+
+    NgIconsModule.withIcons({
+      heroMoon,
+      heroSun,
+    }),
+  ],
   exports: [
     HeaderComponent,
     ConfirmModalComponent,
     ToastComponent,
     FooterComponent,
+    NgIconsModule,
   ],
 })
 export class SharedModule {}
