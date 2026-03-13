@@ -50,25 +50,83 @@
 >
   <form [formGroup]="subscriptionForm" class="space-y-4">
     <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">
-      {{ "modal.notificationEmail" | translate }}
+      {{ "modal.notificationMethod" | translate }}
     </label>
 
-    <input
-      type="email"
-      formControlName="email"
-      class="w-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded px-3 py-2"
-      placeholder="correo@ejemplo.com"
-    />
+    <div class="flex gap-4">
+      <label
+        class="flex items-center gap-2 cursor-pointer text-gray-700 dark:text-gray-200"
+      >
+        <input
+          type="radio"
+          value="email"
+          formControlName="notificationMethod"
+          class="accent-blue-600"
+        />
+        {{ "modal.emailOption" | translate }}
+      </label>
 
-    <p
-      *ngIf="
-        subscriptionForm.get('email')?.invalid &&
-        subscriptionForm.get('email')?.touched
-      "
-      class="text-red-500 text-sm"
-    >
-      {{ "errors.invalidEmail" | translate }}
-    </p>
+      <label
+        class="flex items-center gap-2 cursor-pointer text-gray-700 dark:text-gray-200"
+      >
+        <input
+          type="radio"
+          value="sms"
+          formControlName="notificationMethod"
+          class="accent-blue-600"
+        />
+        {{ "modal.smsOption" | translate }}
+      </label>
+    </div>
+
+    <div *ngIf="subscriptionForm.get('notificationMethod')?.value === 'email'">
+      <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+        {{ "modal.notificationEmail" | translate }}
+      </label>
+
+      <input
+        type="email"
+        formControlName="email"
+        placeholder="correo@ejemplo.com"
+        class="w-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+
+      <p
+        *ngIf="
+          subscriptionForm.get('email')?.invalid &&
+          subscriptionForm.get('email')?.touched
+        "
+        class="text-red-500 text-sm"
+      >
+        {{ "errors.invalidEmail" | translate }}
+      </p>
+    </div>
+
+    <div *ngIf="subscriptionForm.get('notificationMethod')?.value === 'sms'">
+      <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+        {{ "modal.notificationPhone" | translate }}
+      </label>
+
+      <input
+        type="tel"
+        formControlName="phone"
+        inputmode="numeric"
+        pattern="[0-9]*"
+        (keydown)="allowOnlyNumbers($event)"
+        placeholder="+57 300 123 4567"
+        class="w-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+
+      <p
+        *ngIf="
+          subscriptionForm.get('phone')?.invalid &&
+          subscriptionForm.get('phone')?.touched
+        "
+        class="text-red-500 text-sm"
+      >
+        {{ "errors.invalidPhone" | translate }}
+      </p>
+    </div>
 
     <div *ngIf="loading" class="text-blue-600 dark:text-blue-400 text-sm">
       {{ "modal.processing" | translate }}

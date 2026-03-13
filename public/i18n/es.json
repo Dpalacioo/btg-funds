@@ -37,13 +37,19 @@
     "cancelParticipation": "Cancelar participación",
     "confirm": "Confirmar",
     "cancel": "Cancelar",
+    "notificationMethod": "Método de notificación",
     "notificationEmail": "Email de notificación",
+    "notificationPhone": "Teléfono para SMS",
+    "emailOption": "Correo electrónico",
+    "smsOption": "Mensaje de texto",
     "processing": "Procesando...",
     "cancelMessage": "¿Desea cancelar su participación en este fondo?"
   },
 
   "errors": {
     "invalidEmail": "Debe ingresar un email válido",
+    "invalidPhone": "Debe ingresar un número de teléfono válido",
+    "invalidNotification": "Debe ingresar un método de notificación válido",
     "insufficientBalance": "No hay saldo suficiente para suscribirse a este fondo."
   },
 

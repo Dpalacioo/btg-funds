@@ -37,13 +37,19 @@
     "cancelParticipation": "Cancel Participation",
     "confirm": "Confirm",
     "cancel": "Cancel",
+    "notificationMethod": "Notification Method",
     "notificationEmail": "Notification Email",
+    "notificationPhone": "Phone for SMS",
+    "emailOption": "Email",
+    "smsOption": "SMS",
     "processing": "Processing...",
     "cancelMessage": "Do you want to cancel your participation in this fund?"
   },
 
   "errors": {
     "invalidEmail": "You must enter a valid email",
+    "invalidPhone": "You must enter a valid phone number",
+    "invalidNotification": "You must select a valid notification method",
     "insufficientBalance": "Insufficient balance to subscribe to this fund."
   },
 

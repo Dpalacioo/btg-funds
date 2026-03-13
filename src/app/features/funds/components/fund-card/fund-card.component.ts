@@ -31,8 +31,31 @@ export class FundCardComponent {
     private fb: FormBuilder,
   ) {
     this.subscriptionForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
+      notificationMethod: ['email', Validators.required],
+      email: ['', [Validators.email]],
+      phone: ['', [Validators.pattern('^[0-9]{7,15}$')]],
     });
+
+    this.subscriptionForm
+      .get('notificationMethod')
+      ?.valueChanges.subscribe((method) => {
+        const emailControl = this.subscriptionForm.get('email');
+        const phoneControl = this.subscriptionForm.get('phone');
+
+        if (method === 'email') {
+          emailControl?.setValidators([Validators.required, Validators.email]);
+          phoneControl?.clearValidators();
+        } else {
+          phoneControl?.setValidators([
+            Validators.required,
+            Validators.pattern('^[0-9]{7,15}$'),
+          ]);
+          emailControl?.clearValidators();
+        }
+
+        emailControl?.updateValueAndValidity();
+        phoneControl?.updateValueAndValidity();
+      });
   }
 
   openConfirmModal() {
@@ -43,10 +66,21 @@ export class FundCardComponent {
     this.showConfirmModal = false;
   }
 
+  allowOnlyNumbers(event: KeyboardEvent) {
+    if (!/^[0-9]$/.test(event.key)) {
+      event.preventDefault();
+    }
+  }
+
   confirmSubscription() {
-    if (this.subscriptionForm.invalid) {
+    const method = this.subscriptionForm.value.notificationMethod;
+
+    if (
+      (method === 'email' && this.subscriptionForm.get('email')?.invalid) ||
+      (method === 'sms' && this.subscriptionForm.get('phone')?.invalid)
+    ) {
       this.toastService.show({
-        text: 'errors.invalidEmail',
+        text: 'errors.invalidNotification',
         type: 'error',
       });
       return;
@@ -76,7 +110,7 @@ export class FundCardComponent {
         fundName: this.fund.name,
         amount: this.fund.minAmount,
         type: TransactionType.SUBSCRIPTION,
-        notificationMethod: 'EMAIL',
+        notificationMethod: method.toUpperCase() as 'EMAIL' | 'SMS',
         date: new Date().toISOString(),
       };
 

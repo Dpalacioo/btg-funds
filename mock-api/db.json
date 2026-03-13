@@ -260,6 +260,42 @@
       "notificationMethod": "EMAIL",
       "date": "2026-03-13T14:15:56.152Z",
       "id": 26
+    },
+    {
+      "fundId": 1,
+      "fundName": "FPV_BTG_PACTUAL_RECAUDADORA",
+      "amount": 75000,
+      "type": "SUBSCRIPTION",
+      "notificationMethod": "SMS",
+      "date": "2026-03-13T18:04:55.575Z",
+      "id": 27
+    },
+    {
+      "fundId": 1,
+      "fundName": "FPV_BTG_PACTUAL_RECAUDADORA",
+      "amount": 75000,
+      "type": "SUBSCRIPTION",
+      "notificationMethod": "SMS",
+      "date": "2026-03-13T18:40:26.119Z",
+      "id": 28
+    },
+    {
+      "fundId": 1,
+      "fundName": "FPV_BTG_PACTUAL_RECAUDADORA",
+      "amount": 75000,
+      "type": "SUBSCRIPTION",
+      "notificationMethod": "SMS",
+      "date": "2026-03-13T18:40:35.164Z",
+      "id": 29
+    },
+    {
+      "fundId": 1,
+      "fundName": "FPV_BTG_PACTUAL_RECAUDADORA",
+      "amount": 75000,
+      "type": "SUBSCRIPTION",
+      "notificationMethod": "SMS",
+      "date": "2026-03-13T18:46:11.553Z",
+      "id": 30
     }
   ]
 }
