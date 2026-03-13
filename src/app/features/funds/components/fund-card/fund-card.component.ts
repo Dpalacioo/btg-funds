@@ -67,6 +67,23 @@ export class FundCardComponent {
   }
 
   allowOnlyNumbers(event: KeyboardEvent) {
+    const allowedKeys = [
+      'Backspace',
+      'Delete',
+      'Tab',
+      'ArrowLeft',
+      'ArrowRight',
+      'Home',
+      'End',
+    ];
+
+    if (
+      allowedKeys.includes(event.key) ||
+      (event.ctrlKey && ['a', 'c', 'v', 'x'].includes(event.key.toLowerCase()))
+    ) {
+      return;
+    }
+
     if (!/^[0-9]$/.test(event.key)) {
       event.preventDefault();
     }
