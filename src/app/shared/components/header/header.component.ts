@@ -25,7 +25,6 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.isDark = document.documentElement.classList.contains('dark');
-
     this.currentLanguage = this.languageService.getCurrentLanguage();
   }
 
@@ -37,5 +36,10 @@ export class HeaderComponent implements OnInit {
   changeLanguage(lang: string) {
     this.languageService.setLanguage(lang);
     this.currentLanguage = lang;
+  }
+
+  toggleLanguage() {
+    const newLang = this.currentLanguage === 'es' ? 'en' : 'es';
+    this.changeLanguage(newLang);
   }
 }

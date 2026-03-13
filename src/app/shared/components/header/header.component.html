@@ -70,14 +70,17 @@
           </div>
         </div>
 
-        <select
-          [value]="currentLanguage"
-          (change)="changeLanguage($any($event.target).value)"
-          class="border border-gray-300 dark:border-gray-600 rounded px-2 py-1 text-sm bg-white dark:bg-gray-800"
+        <div
+          (click)="toggleLanguage()"
+          class="relative w-14 h-7 flex items-center rounded-full bg-gray-200 dark:bg-gray-700 cursor-pointer transition-colors duration-300"
         >
-          <option value="es">ES</option>
-          <option value="en">EN</option>
-        </select>
+          <div
+            class="absolute left-1 w-5 h-5 rounded-full bg-white dark:bg-gray-900 flex items-center justify-center shadow-md transform transition-all duration-300 text-[10px] font-bold text-gray-700 dark:text-gray-200"
+            [class.translate-x-7]="currentLanguage === 'en'"
+          >
+            {{ currentLanguage === "en" ? "EN" : "ES" }}
+          </div>
+        </div>
       </div>
     </div>
   </div>
