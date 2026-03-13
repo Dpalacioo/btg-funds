@@ -206,6 +206,60 @@
       "notificationMethod": "EMAIL",
       "date": "2026-03-13T14:08:28.984Z",
       "id": 20
+    },
+    {
+      "fundId": 4,
+      "fundName": "FDO-ACCIONES",
+      "amount": 250000,
+      "type": "SUBSCRIPTION",
+      "notificationMethod": "EMAIL",
+      "date": "2026-03-13T14:13:41.413Z",
+      "id": 21
+    },
+    {
+      "fundId": 4,
+      "fundName": "FDO-ACCIONES",
+      "amount": 250000,
+      "type": "SUBSCRIPTION",
+      "notificationMethod": "EMAIL",
+      "date": "2026-03-13T14:13:52.653Z",
+      "id": 22
+    },
+    {
+      "fundId": 4,
+      "fundName": "FDO-ACCIONES",
+      "amount": 250000,
+      "type": "SUBSCRIPTION",
+      "notificationMethod": "EMAIL",
+      "date": "2026-03-13T14:15:03.210Z",
+      "id": 23
+    },
+    {
+      "fundId": 4,
+      "fundName": "FDO-ACCIONES",
+      "amount": 250000,
+      "type": "SUBSCRIPTION",
+      "notificationMethod": "EMAIL",
+      "date": "2026-03-13T14:15:08.481Z",
+      "id": 24
+    },
+    {
+      "fundId": 4,
+      "fundName": "FDO-ACCIONES",
+      "amount": 250000,
+      "type": "SUBSCRIPTION",
+      "notificationMethod": "EMAIL",
+      "date": "2026-03-13T14:15:48.871Z",
+      "id": 25
+    },
+    {
+      "fundId": 4,
+      "fundName": "FDO-ACCIONES",
+      "amount": 250000,
+      "type": "SUBSCRIPTION",
+      "notificationMethod": "EMAIL",
+      "date": "2026-03-13T14:15:56.152Z",
+      "id": 26
     }
   ]
 }
