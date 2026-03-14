@@ -62,7 +62,6 @@ describe('ToastService', () => {
 
     expect(clearSpy).toHaveBeenCalled();
 
-    // limpia los timers pendientes
     tick(3000);
   }));
 

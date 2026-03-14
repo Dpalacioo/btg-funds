@@ -50,7 +50,7 @@ describe('FundsPageComponent', () => {
   it('should call loadFunds on ngOnInit', () => {
     const spy = spyOn(component, 'loadFunds');
 
-    fixture.detectChanges(); // ejecuta ngOnInit
+    fixture.detectChanges();
 
     expect(spy).toHaveBeenCalled();
   });
